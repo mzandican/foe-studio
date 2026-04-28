@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FOE Studio</title>
+</head>
+<body>
+
+<h1>FOE Studio</h1>
+
+<input id="input" value="10" />
+<button onclick="run()">Run</button>
+
+<p id="output"></p>
+
+<script>
+async function run() {
+  const val = document.getElementById("input").value
+  const res = await fetch(`/run?input=${val}`)
+  const data = await res.json()
+  document.getElementById("output").innerText = data.result
+}
+</script>
+
+</body>
+</html>
